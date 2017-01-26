@@ -22,18 +22,21 @@ THE SOFTWARE.
 
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Callbacks;
 using System.IO;
 using System.Text;
 
 namespace Sdkbox
 {
-	[InitializeOnLoad]
-	public class DebugMode
-	{
-		static DebugMode()
-		{
-		}
-	}
+    [InitializeOnLoad]
+    public class DebugMode
+    {
+        [PostProcessSceneAttribute (0)]
+        static DebugMode()
+        {
+            Sdkbox.Installer.SetDebugMode (true);
+        }
+    }
 }
         
         
